@@ -14,9 +14,10 @@ export interface Wordbook {
 }
 
 // Sample
-export const user = atom<{ name: string, mylist: Wordbook[] }>({
+export const user = atom<{ uid: string, name: string, mylist: Omit<Wordbook, 'word'>[] }>({
   key: 'userState',
   default: {
+    uid: '',
     name: 'nob',
     mylist: [
       {
