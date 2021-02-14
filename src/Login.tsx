@@ -18,7 +18,6 @@ export const Login: React.FC<LoginProps> = () => {
     firebase.auth().signInWithPopup(provider)
       .then(user => {
         alert("success : " + user.user.displayName + "さんでログインしました");
-        setUser({ uid: user.user.uid, name: '', mylist: [] })
         router.push('/mypage')
       })
       .catch(error => {
