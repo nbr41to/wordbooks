@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import { Login } from '../src/Login';
-import { ModalWrapper } from '../src/components/Modal';
+import { ModalWrapper } from '../src/components/Modal/Modal';
 import React from 'react';
 import { Button } from '@material-ui/core';
 import styled from 'styled-components';
