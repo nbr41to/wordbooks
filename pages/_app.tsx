@@ -1,3 +1,4 @@
+import { StylesProvider } from '@material-ui/core'
 import Head from 'next/head'
 import React from 'react'
 import { RecoilRoot } from 'recoil'
@@ -9,14 +10,16 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <RecoilRoot>
-        <GlobalStyle />
-        {/* <Layout> */}
-        <Head>
-          <title>Wordbook</title>
-          <meta charSet="utf-8" />
-        </Head>
-        <Component {...pageProps} />
-        {/* </Layout> */}
+        <StylesProvider injectFirst>
+          <GlobalStyle />
+          {/* <Layout> */}
+          <Head>
+            <title>Wordbook</title>
+            <meta charSet="utf-8" />
+          </Head>
+          <Component {...pageProps} />
+          {/* </Layout> */}
+        </StylesProvider>
       </RecoilRoot>
     </>
   )

@@ -1,9 +1,9 @@
 import { Button, ButtonGroup, Card } from '@material-ui/core'
 import React from 'react'
-import { wordbook, Wordbook } from './recoil'
+import { wordbook, Wordbook } from '../../recoil'
 import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
-import { AddWordModal } from './components/Modal/AddWordModal';
+import { AddWordModal } from '../Modal/AddWordModal';
 
 type BookCardProps = {
   book: Wordbook

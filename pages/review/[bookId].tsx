@@ -1,5 +1,5 @@
 import React from 'react'
-import { Review } from '../../src/Review'
+import { Review } from '../../src/components/Review'
 
 const ReviewPage: React.FC = () => {
   return (

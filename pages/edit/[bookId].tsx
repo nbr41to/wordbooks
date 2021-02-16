@@ -1,6 +1,5 @@
 import React from 'react'
-import { EditBook } from '../../src/EditBook'
-import { Review } from '../../src/Review'
+import { EditBook } from '../../src/components/EditBook'
 
 const ReviewPage: React.FC = () => {
   return (

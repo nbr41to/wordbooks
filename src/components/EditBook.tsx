@@ -1,6 +1,6 @@
 import React from 'react'
 import { useRecoilValue } from 'recoil'
-import { wordbook } from './recoil'
+import { wordbook } from '../recoil'
 import { useRouter } from 'next/router'
 import { Card } from '@material-ui/core'
 

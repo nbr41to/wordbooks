@@ -8,7 +8,7 @@ type SubscribeFirebaseProps = {
 
 }
 
-export const SubscribeFirebase: React.FC<SubscribeFirebaseProps> = () => {
+export const SubscribeFirebase: React.FC<SubscribeFirebaseProps> = ({ children }) => {
   const [userInfo, setUserInfo] = useRecoilState(user)
   // const [myBooks, setMyBooks] = React.useState<Wordbook[]>([])
   const router = useRouter()
@@ -30,5 +30,5 @@ export const SubscribeFirebase: React.FC<SubscribeFirebaseProps> = () => {
     getMyBooks()
   }, [])
 
-  return null
+  return <>{children}</>
 }

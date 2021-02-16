@@ -1,7 +1,6 @@
 import React from 'react'
-import { Mylist } from '../src/Mylist'
+import { Mylist } from '../src/components/Mylist'
 import { useRouter } from 'next/router';
-import { Auth } from '../src/firebase/Auth';
 import { SubscribeFirebase } from '../src/recoil/SubscribeFirebase';
 
 // export const getStaticProps = async () => {
@@ -20,8 +19,9 @@ const Mypage: React.FC<{ uid: string | null }> = (props) => {
   // }, [])
   return (
     <div>
-      <SubscribeFirebase />
-      <Mylist />
+      <SubscribeFirebase>
+        <Mylist />
+      </SubscribeFirebase>
     </div>
   )
 }

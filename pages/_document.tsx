@@ -32,7 +32,8 @@ export default class MyDocument extends Document {
     return (
       <Html lang="ja">
         <Head>
-
+          <link rel="icon" href="/book.svg" type="image/svg+xml" />
+          <link rel="icon alternate" href="/book.svg" type="image/png" />
         </Head>
         <body>
           <Main />
