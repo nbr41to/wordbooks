@@ -34,3 +34,12 @@ export const addWord = (bookId: string, word: string, hint?: string) => {
   });
 }
 
+// ログアウト
+export const logout = () => {
+  firebase.auth().signOut().then(() => {
+    alert("ログアウト完了");
+  })
+    .catch((error) => {
+      console.log(`ログアウト時にエラーが発生しました (${error})`);
+    });
+}

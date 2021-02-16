@@ -4,22 +4,21 @@ import styled from 'styled-components';
 
 export type ButtonProps = ButtonBaseProps & {
   className?: string
-  baseColor?: string
+  bgColor?: string
   pressColor?: string
   onClick: () => void
 }
 
 export const Button: React.FC<ButtonProps> = ({
   className = '',
-  baseColor = '#3503fc',
+  bgColor = '#3503fc',
   children,
   ...props
 }) => {
-  console.log(props)
   return (
     <StyledButton
       className={className}
-      baseColor={baseColor}
+      bgColor={bgColor}
       {...props}
     >
       {children}
@@ -27,12 +26,12 @@ export const Button: React.FC<ButtonProps> = ({
   );
 };
 
-const StyledButton = styled(ButtonBase) < { baseColor: string } > `
+const StyledButton = styled(({ bgColor, ...props }) => <ButtonBase {...props} />) < { bgColor: string } > `
   /* display: block; */
-  color: ${({ baseColor }) => baseColor};
+  color: ${({ bgColor }) => bgColor};
   text-align: center;
   padding: 12px 32px;
-  border: 1px solid ${({ baseColor }) => baseColor};
+  border: 1px solid ${({ bgColor }) => bgColor};
   border-radius: 4px;
 
   &:active {

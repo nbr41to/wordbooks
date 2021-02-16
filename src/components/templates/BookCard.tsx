@@ -23,7 +23,7 @@ export const BookCard: React.FC<BookCardProps> = ({ book }) => {
     router.push(`/edit/${id}`)
   }
   return (
-    <Card className='mb-16 p-16' key={book.id}>
+    <Card className='mb-16 p-16'>
       <div>{book.title}</div>
       {book.description && <div>{book.description}</div>}
       <ButtonGroup color="primary">

@@ -67,9 +67,9 @@ export const Login: React.FC<LoginProps> = () => {
       <form className="fccc">
         <TextField className="m-16" label='Email' fullWidth variant="outlined" onChange={(e) => setEmail(e.target.value)} />
         <TextField className="m-16" label='Password' fullWidth variant="outlined" type='password' onChange={(e) => setPassword(e.target.value)} />
-        <Button className="m-16 w100" baseColor="green" onClick={loginEmail}>メールアドレスでログイン</Button>
+        <Button className="m-16 w100" bgColor="green" onClick={loginEmail}>メールアドレスでログイン</Button>
       </form>
-      <Button className="m-16" baseColor="orange" onClick={() => signupEmail}>
+      <Button className="m-16" bgColor="orange" onClick={() => signupEmail}>
         メールアドレスでアカウントを作成
       </Button>
     </div>
