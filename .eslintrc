@@ -1,0 +1,91 @@
+{
+  "env": {
+    "es6": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended", // ESLintの基本的なルールを有効にします。
+    "plugin:@typescript-eslint/recommended", // TypeScriptの基本的なルールを有効にします。
+    "prettier/@typescript-eslint" // Prettierと競合するTypeScriptの基本的なルールを無効にします。
+  ],
+  "plugins": ["react-hooks", "react", "@typescript-eslint"],
+  "parser": "@typescript-eslint/parser", // TypeScript用のパーサーを使用します。
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "rules": {
+    "semi": "error",
+    "quotes": ["warn", "double"],
+    "no-console": "warn"
+  }
+}
+// {
+//   "env": {
+//     "es6": true,
+//     "node": true,
+//     "browser": true,
+//     "commonjs": true
+//   },
+//   "extends": [
+//     "eslint:recommended",
+//     "plugin:@typescript-eslint/eslint-recommended",
+//     "plugin:@typescript-eslint/recommended",
+//     "plugin:react/recommended",
+//     "plugin:react-hooks/recommended",
+//     "stylelint-config-recommended",
+//     "stylelint-config-styled-components",
+//     "prettier",
+//     "prettier/react",
+//     "prettier/@typescript-eslint"
+//   ],
+//   "plugins": ["react-hooks", "react", "@typescript-eslint"],
+//   "parser": "@typescript-eslint/parser",
+//   "parserOptions": {
+//     "ecmaVersion": 2018,
+//     "ecmaFeatures": {
+//       "jsx": true
+//     },
+//     "sourceType": "module"
+//   },
+//   "processors": [
+//     [
+//       "stylelint-processor-styled-components",
+//       {
+//         "moduleName": "styled-components",
+//         "importName": "default",
+//         "strict": false,
+//         "ignoreFiles": [],
+//         "parserPlugins": [
+//           "tsx",
+//           ["decorators", { "decoratorsBeforeExport": true }],
+//           "classProperties",
+//           "exportExtensions",
+//           "functionBind",
+//           "functionSent"
+//         ]
+//       }
+//     ]
+//   ],
+//   "rules": {
+//     "semi": "error",
+//     "quotes": ["warn", "single"],
+//     "indent": ["error", 2],
+//     "no-console": "warn",
+//     // TypeScirpt なので prop-types は要らない
+//     "react/prop-types": "off"
+//   },
+//   "settings": {
+//     "react": {
+//       "version": "detect"
+//     }
+//   }
+//   // "overrides": [
+//   //   {
+//   //     "files": ["*.js"],
+//   //     "rules": {
+//   //       "@typescript-eslint/no-var-requires": "off",
+//   //       "@typescript-eslint/explicit-function-return-type": "off"
+//   //     }
+//   //   }
+//   // ]
+// }

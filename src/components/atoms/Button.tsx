@@ -31,7 +31,8 @@ const StyledButton = styled(({ bgColor, ...props }) => <ButtonBase {...props} />
   color: ${({ bgColor }) => bgColor};
   text-align: center;
   padding: 12px 32px;
-  border: 1px solid ${({ bgColor }) => bgColor};
+      
+      border: 1px solid ${({ bgColor }) => bgColor};
   border-radius: 4px;
 
   &:active {
