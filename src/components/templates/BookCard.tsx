@@ -1,6 +1,6 @@
-import { Button, ButtonGroup, Card } from '@material-ui/core'
-import React from 'react'
-import { wordbook, Wordbook } from '../../recoil'
+import { Button, ButtonGroup, Card } from '@material-ui/core';
+import React from 'react';
+import { wordbook, Wordbook } from '../../recoil';
 import { useRouter } from 'next/router';
 import { useSetRecoilState } from 'recoil';
 import { AddWordModal } from '../Modal/AddWordModal';
@@ -10,18 +10,18 @@ type BookCardProps = {
 }
 
 export const BookCard: React.FC<BookCardProps> = ({ book }) => {
-  const router = useRouter()
-  const setBook = useSetRecoilState(wordbook)
-  const [isAdding, setIsAdding] = React.useState(false)
+  const router = useRouter();
+  const setBook = useSetRecoilState(wordbook);
+  const [isAdding, setIsAdding] = React.useState(false);
   const openView = (id: string) => {
-    if (book.words.length === 0) return alert('⚠️Wordがありません！')
-    setBook(book)
-    router.push(`/review/${id}`)
-  }
+    if (book.words.length === 0) return alert('⚠️Wordがありません！');
+    setBook(book);
+    router.push(`/review/${id}`);
+  };
   const openDetail = (id: string) => {
-    setBook(book)
-    router.push(`/edit/${id}`)
-  }
+    setBook(book);
+    router.push(`/edit/${id}`);
+  };
   return (
     <Card className='mb-16 p-16'>
       <div>{book.title}</div>
@@ -33,5 +33,5 @@ export const BookCard: React.FC<BookCardProps> = ({ book }) => {
       </ButtonGroup>
       <AddWordModal open={isAdding} close={() => setIsAdding(false)} bookId={book.id} addedRoute={() => openDetail(book.id)} />
     </Card>
-  )
-}
+  );
+};

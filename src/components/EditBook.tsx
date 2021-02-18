@@ -8,7 +8,7 @@ type EditBookProps = {
 
 };
 
-console.log("aaaa");
+console.log('aaaa');
 
 export const EditBook: React.FC<EditBookProps> = () => {
   const book = useRecoilValue(wordbook);

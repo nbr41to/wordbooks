@@ -30,14 +30,10 @@ const StyledButton = styled(({ bgColor, ...props }) => <ButtonBase {...props} />
   /* display: block; */
   color: ${({ bgColor }) => bgColor};
   text-align: center;
-  padding: 12px 32px;
-      
-      border: 1px solid ${({ bgColor }) => bgColor};
-  border-radius: 4px;
+       padding: 12px 32px;
+  border: 1px solid ${({ bgColor }) => bgColor};
+    border-radius: 4px;
 
-  &:active {
-
-  }
   &:disabled {
     opacity: 0.4;
   }
