@@ -1,22 +1,22 @@
-import { Button, Input } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
-import { addBook } from '../../firebase/functions'
-import { ModalProps, ModalWrapper } from './Modal'
+import { Button, Input } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
+import { addBook } from '../../firebase/functions';
+import { ModalProps, ModalWrapper } from './Modal';
 
 type AddBookModalProps = ModalProps & {
 
 }
 
 export const AddBookModal: React.FC<AddBookModalProps> = ({ open, close }) => {
-  const [title, setTitle] = React.useState('')
-  const [description, setDescription] = React.useState('')
+  const [title, setTitle] = React.useState('');
+  const [description, setDescription] = React.useState('');
   const submitNewBook = (e) => {
-    e.preventDefault()
-    addBook(title, description)
-    alert('新しいBookを作成しました！')
-    close()
-  }
+    e.preventDefault();
+    addBook(title, description);
+    alert('新しいBookを作成しました！');
+    close();
+  };
   return (
     <ModalWrapper open={open} close={close}>
       <form className='fccc' onSubmit={(e) => submitNewBook(e)}>
@@ -30,5 +30,5 @@ export const AddBookModal: React.FC<AddBookModalProps> = ({ open, close }) => {
         </div>
       </form>
     </ModalWrapper>
-  )
-}
+  );
+};

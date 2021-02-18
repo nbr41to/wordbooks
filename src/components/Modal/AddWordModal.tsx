@@ -1,8 +1,8 @@
-import { Button, Input } from '@material-ui/core'
-import React from 'react'
-import styled from 'styled-components'
-import { addWord } from '../../firebase/functions'
-import { ModalProps, ModalWrapper } from './Modal'
+import { Button, Input } from '@material-ui/core';
+import React from 'react';
+import styled from 'styled-components';
+import { addWord } from '../../firebase/functions';
+import { ModalProps, ModalWrapper } from './Modal';
 
 type AddWordModalProps = ModalProps & {
   bookId: string
@@ -10,14 +10,14 @@ type AddWordModalProps = ModalProps & {
 }
 
 export const AddWordModal: React.FC<AddWordModalProps> = ({ open, close, bookId, addedRoute }) => {
-  const [word, setword] = React.useState('')
-  const [hint, setHint] = React.useState('')
+  const [word, setword] = React.useState('');
+  const [hint, setHint] = React.useState('');
   const submitNewWord = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    addWord(bookId, word, hint)
-    alert('新しいWordを作成しました！')
-    addedRoute()
-  }
+    e.preventDefault();
+    addWord(bookId, word, hint);
+    alert('新しいWordを作成しました！');
+    addedRoute();
+  };
   return (
     <ModalWrapper open={open} close={close}>
       <form className='fccc' onSubmit={(e) => submitNewWord(e)}>
@@ -31,5 +31,5 @@ export const AddWordModal: React.FC<AddWordModalProps> = ({ open, close, bookId,
         </div>
       </form>
     </ModalWrapper>
-  )
-}
+  );
+};

@@ -25,7 +25,6 @@ export const reset = css`
 
   html {
     line-height: 1.15; /* 1 */
-    -webkit-text-size-adjust: 100%; /* 2 */
     -webkit-tap-highlight-color: transparent; /* 3*/
   }
 
@@ -123,7 +122,7 @@ export const reset = css`
   */
 
   pre {
-    font-family: monospace, monospace; /* 1 */
+    font-family: monospace; /* 1 */
     font-size: inherit; /* 2 */
   }
 
@@ -171,7 +170,7 @@ export const reset = css`
   code,
   kbd,
   samp {
-    font-family: monospace, monospace; /* 1 */
+    font-family: monospace; /* 1 */
     font-size: inherit; /* 2 */
   }
 
@@ -230,7 +229,6 @@ export const reset = css`
   optgroup,
   select,
   textarea {
-    -webkit-appearance: none;
     appearance: none;
     vertical-align: middle;
     color: inherit;
@@ -248,12 +246,10 @@ export const reset = css`
   */
 
   [type="checkbox"] {
-    -webkit-appearance: checkbox;
     appearance: checkbox;
   }
 
   [type="radio"] {
-    -webkit-appearance: radio;
     appearance: radio;
   }
 
@@ -288,7 +284,6 @@ export const reset = css`
   [type="reset"],
   [type="submit"] {
     cursor: pointer;
-    -webkit-appearance: none;
     appearance: none;
   }
 
@@ -400,9 +395,6 @@ export const reset = css`
   * Remove the inner padding in Chrome and Safari on macOS.
   */
 
-  [type="search"]::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
 
   /**
   * 1. Correct the inability to style clickable types in iOS and Safari.
@@ -410,7 +402,6 @@ export const reset = css`
   */
 
   ::-webkit-file-upload-button {
-    -webkit-appearance: button; /* 1 */
     font: inherit; /* 2 */
   }
 

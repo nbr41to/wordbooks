@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useSetRecoilState, useRecoilState } from 'recoil';
-import { user, Wordbook } from '../recoil'
-import { useRouter } from 'next/router'
+import { user, Wordbook } from '../recoil';
+import { useRouter } from 'next/router';
 import { wordbook } from '../recoil/index';
 import styled from 'styled-components';
 import { firebase } from '../firebase';
@@ -14,27 +14,27 @@ type MylistProps = {
 }
 
 export const Mylist: React.FC<MylistProps> = ({ ...props }) => {
-  console.log(props)
-  const [userInfo, setUserInfo] = useRecoilState(user)
-  const setBook = useSetRecoilState(wordbook)
-  const [isAdding, setIsAdding] = React.useState(false)
-  const router = useRouter()
+  console.log(props);
+  const [userInfo, setUserInfo] = useRecoilState(user);
+  const setBook = useSetRecoilState(wordbook);
+  const [isAdding, setIsAdding] = React.useState(false);
+  const router = useRouter();
   const getMyBooks = () => {
-    const user = firebase.auth().currentUser
+    const user = firebase.auth().currentUser;
     if (user) {
-      const uid = user.uid
+      const uid = user.uid;
       firebase.firestore().collection('wordbooks').where('usedBy', 'array-contains', uid).onSnapshot((snapshot) => {
-        const myBooks = snapshot.docs.map(doc => doc.data()) as Wordbook[]
-        setUserInfo({ ...userInfo, myBooks })
-      })
+        const myBooks = snapshot.docs.map(doc => doc.data()) as Wordbook[];
+        setUserInfo({ ...userInfo, myBooks });
+      });
     }
-  }
-  console.log(userInfo)
+  };
+  console.log(userInfo);
 
   React.useEffect(() => {
-    getMyBooks()
-    console.log(userInfo)
-  }, [])
+    getMyBooks();
+    console.log(userInfo);
+  }, []);
   return (
     <>
       {userInfo &&
@@ -50,12 +50,12 @@ export const Mylist: React.FC<MylistProps> = ({ ...props }) => {
       }
       <Button onClick={logout}>ログアウト</Button>
     </>
-  )
-}
+  );
+};
 
 const StyledLoginMessage = styled.h3`
   font-size: 20px;
-`
+`;
 const StyledBookTitle = styled.h3`
   font-size: 24px;
-`
+`;

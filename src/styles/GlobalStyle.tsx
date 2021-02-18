@@ -19,7 +19,7 @@ export const GlobalStyle = createGlobalStyle`
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, .3);
   }
-  // size
+  /* size */
   .w100 {
     width: 100%;
   }
@@ -103,7 +103,4 @@ export const GlobalStyle = createGlobalStyle`
     margin-bottom: 32px;
   }
 
-
-/* burger */
-  
 `;

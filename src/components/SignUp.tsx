@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 // import { firebase } from './firebase'
 import firebase from 'firebase/app';
 
@@ -11,5 +11,5 @@ export const SignUp: React.FC<SignUpProps> = () => {
     <div>
       <div>メールアドレスでアカウント作成</div>
     </div>
-  )
-}
+  );
+};

@@ -1,16 +1,16 @@
-import { firebase } from '.'
-import shortid from 'shortid'
+import { firebase } from '.';
+import shortid from 'shortid';
 
 export const getUser = () => {
-  const user = firebase.auth().currentUser
-  if (!user) return null
-}
+  const user = firebase.auth().currentUser;
+  if (!user) return null;
+};
 
 // 新しいBookを追加
 export const addBook = (title: string, description: string) => {
-  const user = firebase.auth().currentUser
-  const uid = user.uid
-  const id = shortid.generate()
+  const user = firebase.auth().currentUser;
+  const uid = user.uid;
+  const id = shortid.generate();
   // データを追加
   firebase.firestore().collection('wordbooks').doc(id).set({
     id,
@@ -19,8 +19,8 @@ export const addBook = (title: string, description: string) => {
     createdBy: uid,
     usedBy: [uid],
     words: [],
-  })
-}
+  });
+};
 
 // 新しいWordを追加
 export const addWord = (bookId: string, word: string, hint?: string) => {
@@ -32,14 +32,14 @@ export const addWord = (bookId: string, word: string, hint?: string) => {
       searchCount: 0,
     })
   });
-}
+};
 
 // ログアウト
 export const logout = () => {
   firebase.auth().signOut().then(() => {
-    alert("ログアウト完了");
+    alert('ログアウト完了');
   })
     .catch((error) => {
       console.log(`ログアウト時にエラーが発生しました (${error})`);
     });
-}
+};
