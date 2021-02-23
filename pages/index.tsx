@@ -7,7 +7,15 @@ import { Button } from '../src/components/atoms/Button';
 
 export default function Home() {
   const [open, set] = React.useState(false)
-  console.log(open)
+  const get = async () => {
+    const response = await fetch('http://localhost:3000/api/test-api', {
+      method: 'post'
+    })
+    const data = await response.json()
+    console.log(data)
+  }
+  get()
+
   return (
     <div>
       <h1>Wordbooks</h1>
