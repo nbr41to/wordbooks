@@ -13,28 +13,30 @@ type MylistProps = {
 
 }
 
-export const Mylist: React.FC<MylistProps> = ({ ...props }) => {
-  console.log(props);
+export const Mylist: React.FC<MylistProps> = ({ props }) => {
   const [userInfo, setUserInfo] = useRecoilState(user);
   const setBook = useSetRecoilState(wordbook);
   const [isAdding, setIsAdding] = React.useState(false);
   const router = useRouter();
+
   const getMyBooks = () => {
-    const user = firebase.auth().currentUser;
-    if (user) {
-      const uid = user.uid;
-      firebase.firestore().collection('wordbooks').where('usedBy', 'array-contains', uid).onSnapshot((snapshot) => {
-        const myBooks = snapshot.docs.map(doc => doc.data()) as Wordbook[];
-        setUserInfo({ ...userInfo, myBooks });
-      });
-    }
+    // ログイン状態のチェック
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        const uid = user.uid;
+        firebase.firestore().collection('wordbooks').where('usedBy', 'array-contains', uid).onSnapshot((snapshot) => {
+          const myBooks = snapshot.docs.map(doc => doc.data()) as Wordbook[];
+          setUserInfo({ ...userInfo, myBooks });
+        });
+      }
+    });
   };
   console.log(userInfo);
 
   React.useEffect(() => {
     getMyBooks();
-    console.log(userInfo);
   }, []);
+
   return (
     <>
       {userInfo &&
