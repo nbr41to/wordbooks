@@ -8,7 +8,6 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <h1>Wordbooks</h1>
       <UserInfo />
       <LoginGoogle />
       <LoginEmail />

@@ -13,7 +13,10 @@ export const CreateBook: React.FC<CreateBookProps> = () => {
   const [description, setDescription] = useState('');
 
   const create = async () => {
+    if (!name) return alert('名前を入力してください');
     await createBook(name, description);
+    setName('');
+    setDescription('');
     await Router.push('/books');
   };
 

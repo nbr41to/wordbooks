@@ -15,6 +15,7 @@ export const TestingBook: React.FC<TestingBookProps> = () => {
   const [numOfQuestion, setNumOfQuestion] = useState('10');
   const [selects, setSelects] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
+  const [testStatus, setTestStatus] = useState<'ready' | 'doing' | 'finish'>('ready');
 
   useEffect(() => {
     const bookId = location.pathname.split('/')[2];
@@ -23,12 +24,17 @@ export const TestingBook: React.FC<TestingBookProps> = () => {
   }, []);
 
   const prep = () => {
+    setTestStatus('doing');
     setSelects(bookInfo?.words.map(word => word.answer));
   };
 
   console.log(bookInfo);
 
   const selected = () => {
+    if (bookInfo?.words.length === currentQuestion + 1) {
+      setTestStatus('finish');
+      return;
+    }
     setCurrentQuestion(currentQuestion + 1);
   };
 
@@ -43,13 +49,16 @@ export const TestingBook: React.FC<TestingBookProps> = () => {
           value={numOfQuestion}
           onChange={(e) => setNumOfQuestion(e.target.value)}
         />
-        <Button onClick={prep}>Start</Button>
-        {/* <FlashCard
-        question={bookInfo?.words[currentQuestion].question}
-        answer={bookInfo?.words[currentQuestion].answer}
-        selects={selects}
-        selected={() => selected()}
-        /> */}
+        {testStatus === 'ready' && <Button onClick={prep}>Start</Button>}
+        {testStatus === 'doing' &&
+          <FlashCard
+            question={bookInfo?.words[currentQuestion].question}
+            answer={bookInfo?.words[currentQuestion].answer}
+            selects={selects}
+            selected={() => selected()}
+          />
+        }
+        {testStatus === 'finish' && <>終了</>}
       </Box>
     </div>
   );

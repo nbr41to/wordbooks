@@ -9,7 +9,7 @@ const Test: React.FC<TestProps> = () => {
   return (
     <div>
       <h1>Test Book</h1>
-      {/* <TestingBook /> */}
+      <TestingBook />
     </div>
   );
 };

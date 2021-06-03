@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { getBooks } from '../firebase/firestore';
 import { Box } from '@fower/react';
 import Router from 'next/router';
-import { getUserId } from 'src/firebase/auth';
 import { Wordbook } from '../../types/index';
 import { Button } from '@material-ui/core';
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { Button, FormControl, FormHelperText, Input, InputLabel } from '@material-ui/core';
+import { Button, FormControl, Input, InputLabel } from '@material-ui/core';
 import { Box } from '@fower/react';
+import { signinEmail } from '../firebase/auth';
+import Router from 'next/router';
 
 type LoginEmailProps = {
 
@@ -13,8 +15,12 @@ export const LoginEmail: React.FC<LoginEmailProps> = () => {
   const submit = (e) => {
     e.preventDefault();
     if (!email && !password) return alert('入力漏れ');
-
+    signinEmail({ email, password });
+    setEmail('');
+    setPassword('');
+    Router.push('/books');
   };
+
   return (
     <Box border-2 p6 m6>
       <h2>メールアドレスでログイン</h2>

@@ -10,12 +10,13 @@ type FlashCardProps = {
 };
 
 export const FlashCard: React.FC<FlashCardProps> = ({ question, answer, selects, selected }) => {
-
+  console.log(question, answer, selects, selected);
   // useEffect(() => {
   //   createSelects()
   // }, []);
 
   const createSelects = () => {
+    if (!selects) return;
     const selectOptions = [];
     const otherThanAnswer = selects.filter(select => select !== answer);
     for (let i = 0; selectOptions.length < 3; i++) {
@@ -26,6 +27,7 @@ export const FlashCard: React.FC<FlashCardProps> = ({ question, answer, selects,
       }
     }
     selectOptions.push(answer);
+
     /* シャッフル */
     for (let i = selectOptions.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
@@ -40,7 +42,7 @@ export const FlashCard: React.FC<FlashCardProps> = ({ question, answer, selects,
     <Box border-2 rounded-8 p4 m4 w='100%'>
       <Box mb4>Q. {question}</Box>
       <Box toLeft column>
-        {createSelects().map((select, index) => <Button key={index} onClick={() => selected(select)}>{index + 1}. {select}</Button>)}
+        {createSelects()?.map((select, index) => <Button key={index} onClick={() => selected(select)}>{index + 1}. {select}</Button>)}
       </Box>
     </Box>
   );

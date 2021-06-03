@@ -18,6 +18,8 @@ export const SignUpEmail: React.FC<SignUpEmailProps> = () => {
     if (!email && !password && !confirmPassword) return alert('入力漏れ');
     if (password !== confirmPassword) return alert('passwordが不一致');
     signupEmail({ email, password });
+    setEmail('');
+    setPassword('');
     Router.push('/books');
   };
 
@@ -35,7 +37,7 @@ export const SignUpEmail: React.FC<SignUpEmailProps> = () => {
         </FormControl>
         <FormControl>
           <InputLabel htmlFor="my-input">Pasword確認用</InputLabel>
-          <Input value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
+          <Input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         </FormControl>
         <Button variant='outlined' type='submit' >Create</Button>
       </Box>
