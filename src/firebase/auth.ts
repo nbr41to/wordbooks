@@ -1,5 +1,7 @@
 import { firebase, auth, db } from '.';
 
+const users = db.collection('users');
+
 /**
  * アカウント作成
  */
@@ -7,16 +9,25 @@ import { firebase, auth, db } from '.';
 export type EmailAndPassword = { email: string; password: string };
 
 /* Email でアカウントの作成 */
-export const signupEmail = async (input: EmailAndPassword) => {
-  const { email, password } = input;
-  const userCredential = await auth.createUserWithEmailAndPassword(
-    email,
-    password
-  );
-  const uid = userCredential.user.uid;
-  // 作成後,自動でログインされる
-  // console.log(userCredential);
-  return userCredential.user;
+export const signupEmail = async (input: EmailAndPassword):Promise<boolean> => {
+  try {
+    const { email, password } = input;
+    const userCredential = await auth.createUserWithEmailAndPassword(
+      email,
+      password
+    );
+    const id = userCredential.user.uid;
+    await users.doc(id).set({
+      id,
+      name: 'ななシン',
+      bookIds: [],
+    });
+
+    return true;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 /* Email でログイン */
