@@ -10,8 +10,9 @@ type LoginGoogleProps = {
 
 export const LoginGoogle: React.FC<LoginGoogleProps> = () => {
   return (
-    <Box border-2 p6 m6>
-      <Button variant='outlined' onClick={signinGoogle}>Googleアカウントでログイン</Button>
+    <Box toCenter column border-2 rounded-8 px12 py6 m6>
+      <Box textXL toCenter my2>Googleアカウントで</Box>
+      <Button variant='outlined' fullWidth onClick={signinGoogle}>Login</Button>
     </Box>
   );
 };

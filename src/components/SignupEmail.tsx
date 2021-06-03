@@ -24,22 +24,25 @@ export const SignUpEmail: React.FC<SignUpEmailProps> = () => {
   };
 
   return (
-    <Box border-2 p6 m6>
-      <h2>アカウント新規作成</h2>
+    <Box border-2 rounded-8 px12 py6 m6>
+      <Box textXL toCenter my2>アカウント新規作成</Box>
       <Box as='form' onSubmit={submit} toCenter column>
-        <FormControl>
+        <FormControl fullWidth>
           <InputLabel>Email</InputLabel>
           <Input value={email} onChange={(e) => setEmail(e.target.value)} />
         </FormControl>
-        <FormControl>
+        <Box h4 />
+        <FormControl fullWidth>
           <InputLabel htmlFor="my-input">Pasword</InputLabel>
           <Input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </FormControl>
-        <FormControl>
+        <Box h4 />
+        <FormControl fullWidth>
           <InputLabel htmlFor="my-input">Pasword確認用</InputLabel>
           <Input type='password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
         </FormControl>
-        <Button variant='outlined' type='submit' >Create</Button>
+        <Box h4 />
+        <Button variant='outlined' fullWidth type='submit'>Create</Button>
       </Box>
     </Box>
   );

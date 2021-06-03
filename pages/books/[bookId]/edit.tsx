@@ -9,7 +9,7 @@ type EditProps = {
 const Edit: React.FC<EditProps> = () => {
   return (
     <div>
-      <h1>Edit Book</h1>
+      <Box text2XL toCenter>Edit Book</Box>
       <WordList />
     </div>
   );

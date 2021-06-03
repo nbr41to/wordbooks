@@ -20,15 +20,12 @@ export const TestingBook: React.FC<TestingBookProps> = () => {
   useEffect(() => {
     const bookId = location.pathname.split('/')[2];
     getBook(bookId).then(data => setBookInfo(data));
-
   }, []);
 
   const prep = () => {
     setTestStatus('doing');
     setSelects(bookInfo?.words.map(word => word.answer));
   };
-
-  console.log(bookInfo);
 
   const selected = () => {
     if (bookInfo?.words.length === currentQuestion + 1) {
@@ -41,15 +38,19 @@ export const TestingBook: React.FC<TestingBookProps> = () => {
   return (
     <div>
       <Box>
-        <Box>{bookInfo?.name}</Box>
-        <Box>{bookInfo?.description}</Box>
+        <Box textXL m4>Title: {bookInfo?.name}</Box>
+        <Box m4>説明: {bookInfo?.description}</Box>
       </Box>
       <Box toCenter column>
-        <TextField variant='outlined' type='number'
+        <TextField
+          label='問題数'
+          variant='outlined'
+          type='number'
           value={numOfQuestion}
           onChange={(e) => setNumOfQuestion(e.target.value)}
         />
-        {testStatus === 'ready' && <Button onClick={prep}>Start</Button>}
+        <Box h4 />
+        {testStatus === 'ready' && <Button variant='outlined' onClick={prep}>Start</Button>}
         {testStatus === 'doing' &&
           <FlashCard
             question={bookInfo?.words[currentQuestion].question}

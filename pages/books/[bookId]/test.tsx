@@ -1,4 +1,4 @@
-import React from 'react';
+import { Box } from '@fower/react';
 import { TestingBook } from 'src/components/TestingBook';
 
 type TestProps = {
@@ -8,7 +8,7 @@ type TestProps = {
 const Test: React.FC<TestProps> = () => {
   return (
     <div>
-      <h1>Test Book</h1>
+      <Box text2XL toCenter>Test Book</Box>
       <TestingBook />
     </div>
   );

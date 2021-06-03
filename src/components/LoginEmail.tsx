@@ -22,18 +22,20 @@ export const LoginEmail: React.FC<LoginEmailProps> = () => {
   };
 
   return (
-    <Box border-2 p6 m6>
-      <h2>メールアドレスでログイン</h2>
+    <Box border-2 rounded-8 px12 py6 m6>
+      <Box textXL toCenter my2>Emailでログイン</Box>
       <Box as='form' onSubmit={submit} toCenter column>
-        <FormControl>
+        <FormControl fullWidth>
           <InputLabel>Email</InputLabel>
           <Input value={email} onChange={(e) => setEmail(e.target.value)} />
         </FormControl>
-        <FormControl>
+        <Box h4 />
+        <FormControl fullWidth>
           <InputLabel htmlFor="my-input">Password</InputLabel>
           <Input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </FormControl>
-        <Button variant='outlined' type='submit' >Login</Button>
+        <Box h4 />
+        <Button variant='outlined' fullWidth type='submit' >Login</Button>
       </Box>
     </Box>
   );

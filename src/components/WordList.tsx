@@ -3,6 +3,7 @@ import { Wordbook } from '../../types';
 import { getBook } from '../firebase/firestore';
 import { Box } from '@fower/react';
 import { AddWord } from './AddWord';
+import { db } from 'src/firebase';
 
 type WordListProps = {
 
@@ -15,8 +16,18 @@ export const WordList: React.FC<WordListProps> = () => {
     bookId = location.pathname.split('/')[2];
   }
 
+  // useEffect(() => {
+  //   getBook(bookId).then(data => setBookInfo(data));
+  // }, []);
+
   useEffect(() => {
-    getBook(bookId).then(data => setBookInfo(data));
+    const unsubscribe = db.collection('books').doc(bookId).onSnapshot((doc) => {
+      const data = doc.data() as Wordbook;
+      setBookInfo(data);
+    });
+    return () => {
+      unsubscribe();
+    };
   }, []);
 
   return (

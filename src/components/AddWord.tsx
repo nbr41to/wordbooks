@@ -14,6 +14,8 @@ export const AddWord: React.FC<AddWordProps> = ({ bookId }) => {
   const submit = (e) => {
     e.preventDefault();
     addWord({ bookId, question, answer });
+    setQuestion('');
+    setAnswer('');
   };
 
   return (

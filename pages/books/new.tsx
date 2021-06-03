@@ -11,9 +11,9 @@ const New: React.FC<NewProps> = () => {
     <div>
       <Box text2XL toCenter>Create Book</Box>
       <CreateBook />
-      <Box m8>
-        <Box>Bookの新規作成ができます.</Box>
-        <Box>Bookとはテストをする問題の集合を表します.</Box>
+      <Box m8 p4>
+        <Box m4>Bookの新規作成ができます.</Box>
+        <Box m4>Bookとはテストをする問題の集合を表します.</Box>
       </Box>
     </div>
   );

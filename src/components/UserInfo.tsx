@@ -22,7 +22,8 @@ export const UserInfo: React.FC<UserInfoProps> = () => {
         <InputLabel>Your name</InputLabel>
         <Input value={name} onChange={(e) => setName(e.target.value)} />
       </FormControl>
-      <Button onClick={update}>Update</Button>
+      <Box h4 />
+      <Button variant='outlined' onClick={update}>Update</Button>
     </Box>
   );
 };
