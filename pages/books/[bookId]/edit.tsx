@@ -1,3 +1,4 @@
+import { Box } from '@fower/react';
 import React from 'react';
 import { AddWord } from '../../../src/components/AddWord';
 import { WordList } from '../../../src/components/WordList';
