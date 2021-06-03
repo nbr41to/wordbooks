@@ -9,7 +9,9 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     color: #333333;
     background-color: #eee;
-    padding: 16px;
+
+    max-width: 375px;
+    margin: 0 auto;
   }
 
   .box {
