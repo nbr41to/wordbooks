@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button, FormControl, FormHelperText, Input, InputLabel } from '@material-ui/core';
 import { Box } from '@fower/react';
+import { signupEmail } from 'src/firebase/auth';
+import Router from 'next/router';
 
 type SignUpEmailProps = {
 
@@ -15,8 +17,8 @@ export const SignUpEmail: React.FC<SignUpEmailProps> = () => {
     e.preventDefault();
     if (!email && !password && !confirmPassword) return alert('入力漏れ');
     if (password !== confirmPassword) return alert('passwordが不一致');
-
-
+    signupEmail({ email, password });
+    Router.push('/books');
   };
 
   return (
@@ -29,7 +31,7 @@ export const SignUpEmail: React.FC<SignUpEmailProps> = () => {
         </FormControl>
         <FormControl>
           <InputLabel htmlFor="my-input">Pasword</InputLabel>
-          <Input value={password} onChange={(e) => setPassword(e.target.value)} />
+          <Input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </FormControl>
         <FormControl>
           <InputLabel htmlFor="my-input">Pasword確認用</InputLabel>

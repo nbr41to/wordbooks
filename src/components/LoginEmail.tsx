@@ -25,7 +25,7 @@ export const LoginEmail: React.FC<LoginEmailProps> = () => {
         </FormControl>
         <FormControl>
           <InputLabel htmlFor="my-input">Password</InputLabel>
-          <Input value={password} onChange={(e) => setPassword(e.target.value)} />
+          <Input type='password' value={password} onChange={(e) => setPassword(e.target.value)} />
         </FormControl>
         <Button variant='outlined' type='submit' >Login</Button>
       </Box>
